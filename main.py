@@ -42,7 +42,7 @@ plt.xlabel("Relatedness")
 plt.ylabel("Similarity")
 plt.show()
 
-#4-plot by type
+#4-plot to get color bar
 fig, ax = plt.subplots()
 colorsType = {'irr':'black', 'ant':'red', 'mer':'yellow', 'hyp':'blue', 'syn':'green'}
 plt.grid()
