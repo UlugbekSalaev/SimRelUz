@@ -32,11 +32,23 @@ fig, ax = plt.subplots()
 colorsType = {'irr':'black', 'ant':'red', 'mer':'yellow', 'hyp':'blue', 'syn':'green'}
 #colorsPos = {'ADJ':'red', 'NOUN':'green', 'VERB':'yellow'}
 plt.grid()
-for color in colorsType:
-    ax.scatter(xpoints, ypoints, c=data['Type'].map(colorsType), label=color)
+
+for name,color in colorsType.items():
+    ax.scatter(xpoints, ypoints, c=data['Type'].map(colorsType), label=name)
 
 ax.legend()
-
+ax.grid(True)
 plt.xlabel("Relatedness")
 plt.ylabel("Similarity")
+plt.show()
+
+#4-plot by type
+fig, ax = plt.subplots()
+colorsType = {'irr':'black', 'ant':'red', 'mer':'yellow', 'hyp':'blue', 'syn':'green'}
+plt.grid()
+for name,color in colorsType.items():
+    ax.scatter(xpoints, ypoints, c=color, label=name)
+
+ax.legend()
+ax.grid(True)
 plt.show()
