@@ -9,7 +9,7 @@ data= pd.read_csv("data.csv")
 xpoints = data.iloc[:, [8,10,12,14,16,18,20,22,24,26]].mean(axis=1) #rel balls
 ypoints = data.iloc[:, [7,9,11,13,15,17,19,21,23,25]].mean(axis=1)  #sim balls
 plt.grid()
-plt.plot(xpoints, ypoints, 'o', ms=10)
+plt.plot(xpoints, ypoints, 'o', ms=5)
 plt.xlabel("Relatedness")
 plt.ylabel("Similarity")
 plt.show()
@@ -19,10 +19,12 @@ xy = np.vstack([xpoints,ypoints])
 z = gaussian_kde(xy)(xy)
 
 fig, ax = plt.subplots()
-ax.scatter(xpoints, ypoints, c=z, s=50)
+sc=ax.scatter(xpoints, ypoints, c=z, s=50)
 plt.grid()
 plt.xlabel("Relatedness")
 plt.ylabel("Similarity")
+cbar = fig.colorbar(sc)
+cbar.set_label("Frequency",loc="top", alpha=0.5)
 plt.show()
 
 #3-plot by type
@@ -30,7 +32,11 @@ fig, ax = plt.subplots()
 colorsType = {'irr':'black', 'ant':'red', 'mer':'yellow', 'hyp':'blue', 'syn':'green'}
 #colorsPos = {'ADJ':'red', 'NOUN':'green', 'VERB':'yellow'}
 plt.grid()
-ax.scatter(xpoints, ypoints, c=data['Type'].map(colorsType))
+for color in colorsType:
+    ax.scatter(xpoints, ypoints, c=data['Type'].map(colorsType), label=color)
+
+ax.legend()
+
 plt.xlabel("Relatedness")
 plt.ylabel("Similarity")
 plt.show()
