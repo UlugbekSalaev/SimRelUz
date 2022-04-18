@@ -41,4 +41,4 @@ print("\n")
 print(r)
 
 xyz = np.array([rater1,rater2,rater3,rater4,rater5,rater6,rater7,rater8,rater9,rater10,rater11])
-print(np.corrcoef(xyz))
+#print(np.corrcoef(xyz))
