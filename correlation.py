@@ -42,3 +42,21 @@ print(r)
 
 xyz = np.array([rater1,rater2,rater3,rater4,rater5,rater6,rater7,rater8,rater9,rater10,rater11])
 #print(np.corrcoef(xyz))
+
+print("Linear Regression results")
+xy=np.array([rater1,rater2])
+
+result = scipy.stats.linregress(rater1, rater8)
+result = scipy.stats.linregress(xy)
+result = scipy.stats.linregress(xy.transpose())
+print(result.slope)
+print(result.intercept)
+print(result.rvalue)
+print(result.pvalue)
+print(result.stderr)
+
+#The correlation coefficient (Pearson's r)
+#The p-value
+
+#The correlation coefficient (Spearman's r)
+#The p-value
