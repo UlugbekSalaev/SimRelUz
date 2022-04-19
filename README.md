@@ -1,3 +1,3 @@
-﻿# SimRelUz
+﻿# SimRelUz: Similarity and Relatedness scores as a Semantic Evaluation dataset for Uzbek language
 
 Semantic relatedness between words is one of the core concepts in natural language processing, thus making semantic evaluation as an important task. In this paper, we present a semantic model evaluation dataset: SimRelUz - a collection of similarity and relatedness scores of word pairs for a low-resource Uzbek language. The dataset consists of more than a thousand pairs of words carefully selected based on their morphological features, occurrence frequency, semantic relation, as well as annotated by eleven native Uzbek speakers from different age groups and gender. We also paid attention to the problem of dealing with rare-words and out-of-vocabulary words to thoroughly evaluate the robustness of semantic models. Additionally, this paper includes further analysis of the created dataset using word-embeddings and pre-trained BERT models  of Uzbek language.
