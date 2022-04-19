@@ -36,27 +36,34 @@ for i in range(10):
         scipy.stats.kendalltau(rel[i], rel[j])[0])  # Kendall's tau
 
 print('Standard deviation for each word-pairs (1418) / Avg,Min,Max')
-sum,min,max=0,100,0
+sum,sumf,min,max=0,0,100,0
 for i in range(1418):
     k = np.std([sim[j][i] for j in range(11)])
+    aa = np.average([rel[j][i] for j in range(11)])
+    print(i, '\t', k, '\t', aa, '\t', k / aa * 100, '%')
     sum+=k
+    sumf+=k/aa*100
     if min>k:
         min=k
     if max<k:
         max=k
     #print(i+1,'\t',np.std([rel[j][i] for j in range(11)]))
-print('Similarity\t',sum/1418,'\t', min,'\t',max)
+print('Similarity\t',sum/1418,'\t',sumf/1418,'\t', min,'\t',max)
 
-sum,min,max=0,100,0
+sum,sumf,min,max=0,0,100,0
 for i in range(1418):
     k = np.std([rel[j][i] for j in range(11)])
+    aa = np.average([rel[j][i] for j in range(11)])
+    #print([rel[j][i] for j in range(11)])
+    print(i,'\t',k,'\t',aa,'\t',k/aa*100,'%')
+    sumf+=k/aa*100
     sum+=k
     if min>k:
         min=k
     if max<k:
         max=k
     #print(i+1,'\t',np.std([rel[j][i] for j in range(11)]))
-print('Relatednes\t',sum/1418,'\t', min,'\t',max)
+print('Relatednes\t',sum/1418,'\t',sumf/1418,'\t', min,'\t',max)
 
 #You could also use dot notation for the Spearman and Kendall coefficients:
 #print(scipy.stats.spearmanr(rater1, rater2).correlation)   # Spearman's rho
