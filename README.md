@@ -87,8 +87,7 @@ Distributed under the GNU GENERAL PUBLIC LICENSE. See `LICENSE.txt` for more inf
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-Big shoutouts to <a href = "https://www.linkedin.com/in/luissantalla/">Luis</a>  for bringing this problem to the table. 
+We would like to thank the NLP team of the Department of Information Technologies, Urgench State university for their huge help with the annotation.
 
 We are grateful for these resources and tutorials for making this repository possible:
 
