@@ -1,4 +1,4 @@
-from tkinter import font
+#from tkinter import font
 
 import matplotlib.pyplot as plt
 import matplotlib
@@ -75,6 +75,10 @@ ax.text(2.3, 3, "Low related", fontsize=8)
 ax.text(8.8, 1.4, "Antonym", fontsize=8)
 ax.text(6.3, 7.4, "High similar", fontsize=8)
 ax.text(8.2, 9.4, "Synonym", fontsize=8)
+ax.text(4.5, 4.5, "DU", fontsize=8)
+ax.text(5.2, 4.5, "DR", fontsize=8)
+ax.text(5.2, 5.2, "SR", fontsize=8)
+ax.text(4.5, 5.2, "SU", fontsize=8)
 plt.show()
 
 #4-plot to get color bar
