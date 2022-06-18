@@ -15,4 +15,5 @@ plt.plot(x, y, linestyle = 'dashed', color="gray", linewidth=1)
 plt.plot(x1, y1, linestyle = 'dashed', color="gray", linewidth=1)
 plt.ylabel('Semantic similarity', **h1font)
 plt.xlabel('Semantic relatedness', **h1font)
+
 plt.show()

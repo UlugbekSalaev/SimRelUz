@@ -1,4 +1,7 @@
+from tkinter import font
+
 import matplotlib.pyplot as plt
+import matplotlib
 import numpy as np
 from scipy.stats import gaussian_kde
 import pandas as pd
@@ -27,28 +30,60 @@ cbar = fig.colorbar(sc)
 cbar.set_label("Frequency",loc="top", alpha=0.5)
 plt.show()
 
+
 #3-plot by type
+x = [0,1,2,3,4,5,6,7,8,9,10]
+y = [5,5,5,5,5,5,5,5,5,5,5]
+y1 = [0,1,2,3,4,5,6,7,8,9,10]
+x1 = [5,5,5,5,5,5,5,5,5,5,5]
+
+h1font = {'fontname':'serif', 'size':10}
+hfont = {'fontname':'serif', 'size':8}
+
 fig, ax = plt.subplots()
+rect1 = matplotlib.patches.Rectangle((0,0), 2, 2, color='#838B8B', )
+rect2 = matplotlib.patches.Rectangle((2,0), 2, 4, color='#C9C9C9')
+rect3 = matplotlib.patches.Rectangle((8,0), 2, 2, color='#FA8072')
+rect4 = matplotlib.patches.Rectangle((6,6), 4, 2, color='#7FFF00',)
+rect5 = matplotlib.patches.Rectangle((8,8), 2, 2, color='#00C957')
+ax.add_patch(rect1)
+ax.add_patch(rect2)
+ax.add_patch(rect3)
+ax.add_patch(rect4)
+ax.add_patch(rect5)
+
 colorsType = {'irr':'black', 'ant':'red', 'mer':'yellow', 'hyp':'blue', 'syn':'green'}
 #colorsPos = {'ADJ':'red', 'NOUN':'green', 'VERB':'yellow'}
-plt.grid()
+#plt.grid()
 
 for name,color in colorsType.items():
     ax.scatter(xpoints, ypoints, c=data['Type'].map(colorsType), label=name)
 
 ax.legend()
-ax.grid(True)
-plt.xlabel("Relatedness")
-plt.ylabel("Similarity")
+#ax.grid(True)
+plt.xlim(0,10)
+plt.ylim(0,10)
+plt.xticks([0,1,2,3,4,5,6,7,8,9,10], **hfont)
+plt.yticks([0,1,2,3,4,5,6,7,8,9,10], **hfont)
+plt.plot(x, y, linestyle = 'dashed', color="gray", linewidth=1)
+plt.plot(x1, y1, linestyle = 'dashed', color="gray", linewidth=1)
+plt.xlabel("Relatedness", **h1font)
+plt.ylabel("Similarity",  **h1font)
+
+ax.text(0.5, 1.5, "Irrelevant", fontsize=8)
+ax.text(2.3, 3, "Low related", fontsize=8)
+ax.text(8.8, 1.4, "Antonym", fontsize=8)
+ax.text(6.3, 7.4, "High similar", fontsize=8)
+ax.text(8.2, 9.4, "Synonym", fontsize=8)
 plt.show()
 
 #4-plot to get color bar
 fig, ax = plt.subplots()
-colorsType = {'irr':'black', 'ant':'red', 'mer':'yellow', 'hyp':'blue', 'syn':'green'}
-plt.grid()
+colorsType = {'irrelevant':'black', 'antonym':'red', 'meronym':'yellow', 'hypernym':'blue', 'synonym':'green'}
+#plt.grid()
 for name,color in colorsType.items():
     ax.scatter(xpoints, ypoints, c=color, label=name)
 
 ax.legend()
-ax.grid(True)
+#ax.grid(True)
 plt.show()
