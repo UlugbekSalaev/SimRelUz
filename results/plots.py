@@ -11,6 +11,8 @@ data= pd.read_csv("data.csv")
 #ypoints = data[:,1]  #ypoints = np.array([4,5,6])
 xpoints = data.iloc[:, [8,10,12,14,16,18,20,22,24,26]].mean(axis=1) #rel balls
 ypoints = data.iloc[:, [7,9,11,13,15,17,19,21,23,25]].mean(axis=1)  #sim balls
+group = data.iloc[:, 5]
+
 plt.grid()
 plt.plot(xpoints, ypoints, 'o', ms=5)
 plt.xlabel("Relatedness")
@@ -52,12 +54,22 @@ ax.add_patch(rect3)
 ax.add_patch(rect4)
 ax.add_patch(rect5)
 
-colorsType = {'irr':'black', 'ant':'red', 'mer':'yellow', 'hyp':'blue', 'syn':'green'}
+colorsType = {'irrelevant':'black', 'antonym':'red', 'meronym':'yellow', 'hypernym':'blue', 'synonym':'green'}
 #colorsPos = {'ADJ':'red', 'NOUN':'green', 'VERB':'yellow'}
 #plt.grid()
 
-for name,color in colorsType.items():
-    ax.scatter(xpoints, ypoints, c=data['Type'].map(colorsType), label=name)
+#for name,color in colorsType.items():
+#    ax.scatter(xpoints, ypoints, c=data['Type'].map(colorsType), label=name)
+
+
+#group = np.array(["irrelevant","antonym","meronym",1,3])
+cdict = {'irrelevant':'black', 'antonym':'red', 'meronym':'yellow', 'hypernym':'blue', 'synonym':'green'}
+for g in np.unique(group):
+    print(g)
+    ix = np.where(group == g)
+    print(ix)
+    for i in ix:
+        ax.scatter(xpoints[i], ypoints[i], c = cdict[g], label = g, s = 35)
 
 ax.legend()
 #ax.grid(True)
